@@ -1,0 +1,16 @@
+version: "3"
+services:
+  dremio:
+    image: dremio/dremio-oss:latest
+    hostname: dremio
+    volumes:
+    # - db-data:/var/lib/dremio
+    # - ./localFiles:/localFiles
+    - db-data:/opt/dremio/data
+    # - /home/foldesizsombor/dremio/dremio-data:/opt/dremio/data
+    ports:
+    - "9047:9047" # UI (HTTP)
+    - "31010:31010" # ODBC/JDBC clients
+
+volumes:
+  db-data:
